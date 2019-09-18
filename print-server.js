@@ -403,6 +403,7 @@ function xUpdateEstructuras() {
 				data: { arrEstructura: listEstructuras, logo: logo}
 			})
 			.done((res) => {
+				console.log('run estructura');
 				console.log(res);
 			});	
 	

@@ -14,7 +14,7 @@
 		$bd=new xManejoBD($_SESSION['nombd']);
 	}
 
-	date_default_timezone_set('America/Lima');
+	// date_default_timezone_set('America/Lima');
 
 	$op = $_GET['op'];	
 	$ido =$_POST['o'];
@@ -60,7 +60,7 @@
 			// 				INNER JOIN usuario as u on u.idusuario = psd.idusuario
 			// 		WHERE (psd.idorg=".$_SESSION['ido']." and psd.idsede=".$_SESSION['idsede']." and psd.impreso=0) and psd.estado=0 ".$UltimoId." ORDER BY psd.idprint_server_detalle DESC";
 			
-			$sql="SELECT psd.*, pse.estructura_json, pse.nom_documento
+			$sql="SELECT psd.*, pse.estructura_json_pwa, pse.nom_documento
 						FROM print_server_detalle as psd
 							INNER JOIN print_server_estructura as pse on pse.idprint_server_estructura = psd.idprint_server_estructura							
 					WHERE (psd.idorg=$ido and psd.idsede=$idsede and psd.impreso=0) and psd.estado=0 ".$UltimoId." ORDER BY psd.idprint_server_detalle DESC";
@@ -95,7 +95,7 @@
 			$bd->xConsulta_NoReturn($sql);
 			break;
 		case '4': // list estructuras
-			$sql="SELECT nom_documento, v, estructura_json FROM print_server_estructura where estado=0";
+			$sql="SELECT nom_documento, v, estructura_json_pwa FROM print_server_estructura where estado=0";
 			$bd->xConsulta($sql);			
 			break;
 		case '5':// logo bits
