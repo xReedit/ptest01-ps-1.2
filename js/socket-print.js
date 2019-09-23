@@ -1,8 +1,8 @@
 
 var socketPrint;
 function openSocket(data) {
-	// socketPrint = io.connect('http://localhost:5819', {
-	socketPrint = io.connect('https://app.restobar.papaya.com.pe', {
+	socketPrint = io.connect('http://localhost:5819', {
+	// socketPrint = io.connect('https://app.restobar.papaya.com.pe', {
     	query: _data_o
 	});
 

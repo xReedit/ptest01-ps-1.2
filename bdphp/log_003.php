@@ -61,7 +61,7 @@
 			// 		WHERE (psd.idorg=".$_SESSION['ido']." and psd.idsede=".$_SESSION['idsede']." and psd.impreso=0) and psd.estado=0 ".$UltimoId." ORDER BY psd.idprint_server_detalle DESC";
 			
 			// pse.estructura_json_pwa, 
-			$sql="SELECT psd.*, pse.nom_documento
+			$sql="SELECT psd.*, pse.estructura_json_pwa, pse.nom_documento
 						FROM print_server_detalle as psd
 							INNER JOIN print_server_estructura as pse on pse.idprint_server_estructura = psd.idprint_server_estructura							
 					WHERE (psd.idorg=$ido and psd.idsede=$idsede and psd.impreso=0) and psd.estado=0 ".$UltimoId." ORDER BY psd.idprint_server_detalle DESC";
