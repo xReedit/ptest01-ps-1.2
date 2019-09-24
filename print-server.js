@@ -262,7 +262,7 @@ async function xSendPrintNow(_listSend, _id, index) {
 			timeout: 4000,
 			data: { arrData: _listSend },
 			success: (res) => {
-				if(res.indexOf('Error, Verifique') > -1) {
+				if(res.indexOf('error') > -1) {
 					xPausaError = true;
 					ListDocs[index].error = 1;
 					xUpdateEstadoError(_id);

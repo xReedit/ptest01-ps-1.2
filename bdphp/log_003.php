@@ -96,7 +96,7 @@
 			$bd->xConsulta_NoReturn($sql);
 			break;
 		case '4': // list estructuras
-			$sql="SELECT nom_documento, v, estructura_json_pwa as estructura_json FROM print_server_estructura where estado=0";
+			$sql="SELECT nom_documento, v, estructura_json FROM print_server_estructura where estado=0";
 			$bd->xConsulta($sql);			
 			break;
 		case '5':// logo bits
