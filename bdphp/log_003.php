@@ -1,18 +1,20 @@
 <?php
 	//log registrar el print server
 	// ini_set('session.use_strict_mode', 1);
-    $sid = md5('restobar-print-server-session-socket');
-    session_id($sid);
-    session_start();
+    // $sid = md5('restobar-print-server-session-socket');
+    // session_id($sid);
+    // session_start();
 	// session_start();	
 	header('content-type: text/html; charset: utf-8');
 	header('Content-Type: text/event-stream');
 	header('Cache-Control: no-cache');
 	include "ManejoBD.php";
 
-	if (isset($_SESSION['nombd'])) {
-		$bd=new xManejoBD($_SESSION['nombd']);
-	}
+	$bd=new xManejoBD('restobar');
+
+	// if (isset($_SESSION['nombd'])) {
+	// 	$bd=new xManejoBD($_SESSION['nombd']);
+	// }
 
 	// date_default_timezone_set('America/Lima');
 
@@ -30,10 +32,10 @@
 				// $_SESSION['ido']=$_POST['o'];
 				// $_SESSION['idsede']=$_POST['s'];
 
-				$bdNom = 'restobar';
-				if ($_POST['d']==='d') {$bdNom = 'restobar_demo';}
-				$_SESSION['nombd']=$bdNom;
-				$bd=new xManejoBD($_SESSION['nombd']);
+				// $bdNom = 'restobar';
+				// if ($_POST['d']==='d') {$bdNom = 'restobar_demo';}
+				// $_SESSION['nombd']=$bdNom;
+				// $bd=new xManejoBD($_SESSION['nombd']);
 
 				// ip local
 				$sql="select ip_server_local from sede where idsede=$idsede";
@@ -46,7 +48,7 @@
 			$idprint_server_estructura = $_POST['idprint_server_estructura'];
 			$tipo = $_POST['tipo'];
 			$sql="INSERT INTO print_server_detalle (idorg, idsede, idprint_server_estructura, descripcion_doc, fecha, hora, detalle_json) 
-											values (".$_SESSION['ido'].",".$_SESSION['idsede'].",".$idprint_server_estructura.", '".$tipo."', DATE_FORMAT(now(),'%d/%m/%Y'), DATE_FORMAT(now(),'%H:%i:%s'),'".$detalle_json."')";
+											values (".$ido.",".$idsede.",".$idprint_server_estructura.", '".$tipo."', DATE_FORMAT(now(),'%d/%m/%Y'), DATE_FORMAT(now(),'%H:%i:%s'),'".$detalle_json."')";
 			
 			// echo $sql;
 			$bd->xConsulta($sql);
