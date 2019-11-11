@@ -165,7 +165,7 @@ function tdRowsPrint(_ListDocumentos) {
 				catch (error) {  
 					_detalle_json = null; 
 					_ip_print = 'error' 
-					console.log('log ', x.detalle_json);
+					console.log('log error', x.detalle_json);
 				}
 			}
 
@@ -388,7 +388,7 @@ function xUpdateEstructuras() {
 		data : _data_o
 	})
 	.done((res) => {
-		const logo = res;
+		const logo = res.trim();
 		$.ajax({
 			url: './bdphp/log_003.php?op=4',
 			type: 'POST'
