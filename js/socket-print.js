@@ -3,7 +3,11 @@ var socketPrint;
 function openSocket(data) {
 	// socketPrint = io.connect('http://localhost:5819', {
 	socketPrint = io.connect('https://app.restobar.papaya.com.pe', {
-    	query: _data_o
+    	query: {
+    		idorg: _data_o.o,
+    		idsede: _data_o.s,
+    		isFromApp: 0
+    	}
 	});
 
 	socketPrint.on('printerComanda', (data) => {   
